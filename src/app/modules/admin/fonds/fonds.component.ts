@@ -97,7 +97,7 @@ export class FondsComponent implements OnInit {
         monto: item.montoMinimo,
         tipoNotificacion: "Email"
       }
-      this._fondService.cancelarSuscripcion(data).subscribe({
+      this._fondService.subscribirFondo(data).subscribe({
         next: (res: any) => {
           alert('Suscripción cancelada con éxito.');
           // Actualizar la lista de fondos después de cancelar la suscripción

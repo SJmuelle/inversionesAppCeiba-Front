@@ -72,7 +72,7 @@
             </div>
             <!-- Price -->
             <div 
-                ng-class="item.suscrito ? 'bg-red-100' : 'bg-blue-100'"
+               [ngClass]="item.suscrito==true ? 'bg-red-100' : 'bg-blue-100'"
                 class="flex flex-col max-w-100 items-center p-2 lg:px-5 lg:py-3    w-full">
                 <div class="flex items-center whitespace-nowrap">
                     <div class="text-4xl font-extrabold tracking-tight">${{item.montoMinimo}}</div>
@@ -81,8 +81,11 @@
                  <div class="font-medium text-center text-secondary">
                         <div>Monto minimo</div>
                 </div>
-                <button class="w-full mt-4 lg:mt-auto" mat-flat-button [color]="'primary'">
+                <button *ngIf="!item.suscrito==true"  (click)="subscribirFondo(item)" class="w-full mt-4 lg:mt-auto" mat-flat-button [color]="'primary'">
                    Subcribirte
+                </button>
+                <button *ngIf="item.suscrito==true"  (click)="cancelarSuscripcion(item)" class="w-full mt-4 lg:mt-auto bg-red-300" mat-flat-button >
+                  Cancelar subscripcion
                 </button>
             </div>
         </fuse-card>
