@@ -11,13 +11,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
     }
 ];
 export const compactNavigation: FuseNavigationItem[] = [
-    {
-        id: 'dashboard',
-        title: 'Home',
-        type: 'basic',
-        icon: 'heroicons_outline:chart-pie',
-        link: '/example'
-    },
+   
     {
         id: 'fonds',
         title: 'Gestión de fondos',
@@ -31,13 +25,6 @@ export const compactNavigation: FuseNavigationItem[] = [
         type: 'basic',
         icon: 'heroicons_outline:banknotes',
         link: '/transactions'
-    },
-    {
-        id: 'notifications',
-        title: 'Notificaciones',
-        type: 'basic',
-        icon: 'heroicons_outline:bell-alert',
-        link: '/notifications'
     }
 ];
 export const futuristicNavigation: FuseNavigationItem[] = [
