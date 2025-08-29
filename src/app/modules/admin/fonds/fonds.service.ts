@@ -13,7 +13,7 @@ constructor(
     private _utilityService: UtilityService
   ) {}
 
-  listTransacciones(user: string) {
+  list(user: string) {
     const url = this._appSettings.fondos.url.getFondosCliente+user;
     return this._utilityService.postQuery(url, null).pipe(map(res => res));
   }
