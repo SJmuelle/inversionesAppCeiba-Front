@@ -34,7 +34,7 @@ export class AppSettingsService {
         url: {
             post: EndPoints.urlBase('fondos'),
             get: EndPoints.urlBase('fondos'),
-            getFondosCliente: EndPoints.urlBase('fondos-por-cliente/?cedula='),
+            getFondosCliente: EndPoints.urlBase('reportes/fondos-por-cliente?cedula='),
         },
     }
 

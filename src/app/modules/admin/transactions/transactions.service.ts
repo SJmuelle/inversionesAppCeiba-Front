@@ -14,7 +14,7 @@ constructor(
   ) {}
 
   listTransacciones(user: string) {
-    const url = this._appSettings.operaciones.url.transacciones+user+'?limit=10';
-    return this._utilityService.postQuery(url, null).pipe(map(res => res));
+    const url = this._appSettings.operaciones.url.transacciones+user+'?limit=1000';
+    return this._utilityService.getQuery(url).pipe(map(res => res));
   }
 }

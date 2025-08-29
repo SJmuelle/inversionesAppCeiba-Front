@@ -15,12 +15,12 @@ constructor(
 
   list(user: string) {
     const url = this._appSettings.fondos.url.getFondosCliente+user;
-    return this._utilityService.postQuery(url, null).pipe(map(res => res));
+    return this._utilityService.getQuery(url).pipe(map(res => res));
   }
 
-  cancelarSuscripcion(idSuscripcion: string) {
+  cancelarSuscripcion(data) {
     const url = this._appSettings.operaciones.url.cancelaciones;
-    return this._utilityService.postQuery(url, { idSuscripcion: idSuscripcion }).pipe(map(res => res));
+    return this._utilityService.postQuery(url, data).pipe(map(res => res));
   }
 
   subscribirFondo(data: any) {

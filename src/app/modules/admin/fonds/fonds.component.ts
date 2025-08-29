@@ -20,20 +20,18 @@ import { FondsService } from './fonds.service';
 @Component({
   selector: 'app-fonds',
   standalone: true,
-  imports: [TranslocoModule,FuseCardComponent, MatProgressBarModule, MatIconModule, MatButtonModule, MatRippleModule, MatMenuModule, MatTabsModule, MatButtonToggleModule, NgApexchartsModule, NgFor, NgIf, MatTableModule, NgClass, CurrencyPipe],
+  imports: [TranslocoModule, FuseCardComponent, MatProgressBarModule, MatIconModule, MatButtonModule, MatRippleModule, MatMenuModule, MatTabsModule, MatButtonToggleModule, NgApexchartsModule, NgFor, NgIf, MatTableModule, NgClass, CurrencyPipe],
 
   templateUrl: './fonds.component.html',
   styleUrl: './fonds.component.scss'
 })
-export class FondsComponent  implements OnInit{
+export class FondsComponent implements OnInit {
 
 
 
 
 
-  fondos=[
-      {nombre:"", descripcion:"", monto:0, fecha:"", estado:"" },
-  ]
+  fondos: any;
 
   user: User;
 
@@ -68,6 +66,50 @@ export class FondsComponent  implements OnInit{
       });
   }
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+
+  }
+
+  cancelarSuscripcion(item: any) {
+    let data = {
+      clienteId: this.user.id,
+      fondoId: item.nombre,
+      tipoNotificacion: "Email"
+    }
+    this._fondService.cancelarSuscripcion(data).subscribe({
+      next: (res: any) => {
+        alert('Suscripción cancelada con éxito.');
+        // Actualizar la lista de fondos después de cancelar la suscripción
+        this._fondService.list(this.user.cedula).subscribe((updatedRes: any) => {
+          this.fondos = updatedRes;
+        });
+      },
+      error: (err) => {
+        console.error('Error al cancelar la suscripción', err);
+        alert('Error al cancelar la suscripción. Por favor, inténtelo de nuevo.');
+      }
+    });
+  }
+
+  subscribirFondo(item: any) {
+      let data = {
+        clienteId: this.user.id,
+        fondoId: item.nombre,
+        monto: item.montoMinimo,
+        tipoNotificacion: "Email"
+      }
+      this._fondService.cancelarSuscripcion(data).subscribe({
+        next: (res: any) => {
+          alert('Suscripción cancelada con éxito.');
+          // Actualizar la lista de fondos después de cancelar la suscripción
+          this._fondService.list(this.user.cedula).subscribe((updatedRes: any) => {
+            this.fondos = updatedRes;
+          });
+        },
+        error: (err) => {
+          console.error('Error al cancelar la suscripción', err);
+          alert('Error al cancelar la suscripción. Por favor, inténtelo de nuevo.');
+        }
+      });
+    
   }
 }

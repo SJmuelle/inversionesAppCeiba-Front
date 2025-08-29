@@ -32,9 +32,10 @@ export class TransactionsComponent {
   user: User;
   public encabezados: IoptionTable[] = [
 
-    { name: "cliente", text: "Cedula", typeField: 'text' },
-    { name: "nombre", text: "Nombre", typeField: 'text' },
-    { name: "descripcion", text: "Oferta", typeField: 'text' },
+
+    { name: "fecha", text: "fecha", typeField: 'text' },
+    { name: "fondoId", text: "Fondo", typeField: 'text' },
+    { name: "tipo", text: "Tipo", typeField: 'text' },
     { name: "monto", text: "Monto", typeField: 'text' },
   ]
 
@@ -48,6 +49,7 @@ export class TransactionsComponent {
     private _transactionsService: TransactionsService
   ) {
     // Subscribe to user changes
+    
     this._userService.user$
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe((user: User) => {
