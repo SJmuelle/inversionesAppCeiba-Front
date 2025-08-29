@@ -7,38 +7,37 @@ import { EndPoints } from './end-points';
 export class AppSettingsService {
 
     /**
-      * @description: End-point auth
-      */
-    public auth = {
-        url: {
-            login: EndPoints.urlBase('login'),
-
-        }
-    };
-
-
-
-    /**
-     * @description: End-point resumen
+     * @description: End-point clientes
      */
-    public resumen = {
+    public clientes = {
         url: {
-            codigoAgente: EndPoints.urlBase('FabricaCreditos/Resumen?codigoAgente='),
-            ClientesAsesor: EndPoints.urlBase('FabricaCreditos/ClientesAsesor?codigoAgente='),
+            post: EndPoints.urlBase('clientes'),
+            get: EndPoints.urlBase('clientes'),
         },
     }
-
-
 
     /**
- * @description: End-point consultaCliente
- */
-    public seguimiento = {
+     * @description: End-point operaciones
+     */
+    public operaciones = {
         url: {
-            consultaCliente: EndPoints.urlBase('FabricaCreditos/ConsultaCliente?cedulaCliente='),
-            guardarRespuesta: EndPoints.urlBase('FabricaCreditos/guardarRespuesta'),
+            suscripciones: EndPoints.urlBase('suscripciones'),
+            cancelaciones: EndPoints.urlBase('cancelaciones'),
+            transacciones: EndPoints.urlBase('transacciones/'),
         },
     }
+
+    /**
+     * @description: End-point fondos
+     */
+    public fondos = {
+        url: {
+            post: EndPoints.urlBase('fondos'),
+            get: EndPoints.urlBase('fondos'),
+            getFondosCliente: EndPoints.urlBase('fondos-por-cliente/?cedula='),
+        },
+    }
+
 
 
 

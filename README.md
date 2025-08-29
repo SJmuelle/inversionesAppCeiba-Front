@@ -53,7 +53,7 @@ src/
 
 Clonar el repositorio:
 
-git clone https://github.com/tuusuario/btg-frontend.git
+git clone  https://github.com/SJmuelle/inversionesAppCeiba-Front.git
 cd btg-frontend
 
 
@@ -88,7 +88,6 @@ Puede desplegarse en S3 + CloudFront o mediante CloudFormation (documentación i
 
 No se implementó autenticación (como lo indicaba la prueba).
 
-El cliente es único y tiene un saldo inicial de COP $500.000.
 
 El frontend consume el API REST expuesto por el backend.
 

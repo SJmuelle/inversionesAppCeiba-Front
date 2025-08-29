@@ -12,11 +12,11 @@
                         <ng-container *transloco="let t">
                             <div
                                 class="text-2xl md:text-5xl font-semibold tracking-tight leading-7 md:leading-snug truncate">
-                                Tus transacciones {{('nombre_usuario')}}</div>
+                                Tus transacciones {{user.name}}</div>
                         </ng-container>
                         <div class="flex items-center">
                             <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:bell'"></mat-icon>
-                            <div class="ml-1.5 leading-6 truncate text-secondary">Tienes {{"cantidad de susbripciones"}}
+                            <div class="ml-1.5 leading-6 truncate text-secondary">Tienes {{listado.length}}
                                 fondos subscriptos</div>
                         </div>
                     </div>

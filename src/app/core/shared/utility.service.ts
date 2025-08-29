@@ -2,8 +2,8 @@ import { HttpClient, HttpEvent } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { FuseConfirmationService } from '@fuse/services/confirmation';
-import { AppSettingsService } from 'app/config/app-settings.service';
 import { catchError, Observable, throwError } from 'rxjs';
+import { AppSettingsService } from '../config/app-settings.service';
 
 @Injectable({
   providedIn: 'root'
